@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:practice1/Localization/GlobalLocalization.dart';
 import 'screen/SignInBody/body.dart';
+import 'package:practice1/Localization/LanguageLocale.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +16,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      supportedLocales: [
+        Locale('en', 'US'),
+        Locale('vi', 'VI'),
+      ],
+      localizationsDelegates: [
+        GlobalLocalization.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
