@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class GlobalLocalization {
   Future<void> load() async {
     String jsonStringValues =
         await rootBundle.loadString('lib/Language/${locale.languageCode}.json');
-       
+    print("[Debug] load : lib/Language/${locale.languageCode}.json");
     Map<String, dynamic> mappedJson = json.decode(jsonStringValues);
     _localizedValues =
         mappedJson.map((key, value) => MapEntry(key, value.toString()));

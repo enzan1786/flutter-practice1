@@ -10,6 +10,7 @@ const String VIETNAM = 'vi';
 
 Future<Locale> setLocale(String languageCode) async {
   SharedPreferences _prefs = await SharedPreferences.getInstance();
+  print("[Debug] setLocale $languageCode");
   await _prefs.setString(LAGUAGE_CODE, languageCode);
   return _locale(languageCode);
 }
@@ -25,7 +26,7 @@ Locale _locale(String languageCode) {
     case ENGLISH:
       return Locale(ENGLISH, 'US');
     case VIETNAM:
-      return Locale(VIETNAM, "VI");
+      return Locale(VIETNAM, "VN");
     default:
       return Locale(ENGLISH, 'US');
   }
@@ -33,13 +34,11 @@ Locale _locale(String languageCode) {
 
 String getTranslated(BuildContext context, String key) {
   String result;
-  if(GlobalLocalization.of(context)?.translate(key) != null)
-  {
+  if (GlobalLocalization.of(context)?.translate(key) != null) {
     String? aNullableString = GlobalLocalization.of(context)?.translate(key);
     result = aNullableString.toString();
-  }
-  else
-  {
+    print("[Debug] getTranslate: $result");
+  } else {
     result = "String null";
   }
   return result;

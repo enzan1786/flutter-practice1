@@ -4,13 +4,28 @@ import 'screen/SignInBody/body.dart';
 import 'package:practice1/Localization/LanguageLocale.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+  static void setLocale(BuildContext context, Locale newLocale) {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state!.setLocale(newLocale);
+  }
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale _locale = Locale("vi");
+  setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
 
   // This widget is the root of your application.
   @override
@@ -18,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       supportedLocales: [
         Locale('en', 'US'),
-        Locale('vi', 'VI'),
+        Locale('vi', 'VN'),
       ],
       localizationsDelegates: [
         GlobalLocalization.delegate,
@@ -46,6 +61,7 @@ class MyApp extends StatelessWidget {
 
 class SignInScreen extends StatelessWidget {
   static String routeName = "/sign_in";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
