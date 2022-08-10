@@ -30,6 +30,7 @@ class _HelloWorldState extends State<HelloWorld> {
   var items = [
     'en',
     'vi',
+    'fa',
   ];
 
   void _changeLanguage(Language? language) async {
@@ -48,7 +49,7 @@ class _HelloWorldState extends State<HelloWorld> {
       );
     } else {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(message),
+        Text(getTranslated(context, 'message')),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

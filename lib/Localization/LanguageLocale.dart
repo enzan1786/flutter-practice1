@@ -7,6 +7,7 @@ const String LAGUAGE_CODE = 'languageCode';
 //languages code
 const String ENGLISH = 'en';
 const String VIETNAM = 'vi';
+const String FA = 'fa';
 
 Future<Locale> setLocale(String languageCode) async {
   SharedPreferences _prefs = await SharedPreferences.getInstance();
@@ -27,6 +28,8 @@ Locale _locale(String languageCode) {
       return Locale(ENGLISH, 'US');
     case VIETNAM:
       return Locale(VIETNAM, "VN");
+    case FA:
+      return Locale(FA, "AF");
     default:
       return Locale(ENGLISH, 'US');
   }
@@ -37,7 +40,6 @@ String getTranslated(BuildContext context, String key) {
   if (GlobalLocalization.of(context)?.translate(key) != null) {
     String? aNullableString = GlobalLocalization.of(context)?.translate(key);
     result = aNullableString.toString();
-    print("[Debug] getTranslate: $result");
   } else {
     result = "String null";
   }

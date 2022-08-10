@@ -95,3 +95,4 @@ flutter:
   assets:
     - lib/Language/en.json
     - lib/Language/vi.json
+    - lib/Language/fa.json
