@@ -1,5 +1,17 @@
 {
     "message":"xin chào thế giới",
-    "tile":"tiêu đề",
-    "change_language":"đổi ngôn ngữ"
+    "title":"tiêu đề",
+    "change_language":"đổi ngôn ngữ",
+    "home_page": "Trang chủ",
+    "personal_information": "Thông tin cá nhân",
+    "name": "tên",
+    "name_hint": "nhập tên của bạn",
+    "email": "email",
+    "email_hint": "Nhập email",
+    "date_of_birth": "Ngày sinh",
+    "required_field": "yêu cầu",
+    "submit_info": "submit info",
+    "about_us": "thông tin",
+    "settings": "Cài đặt",
+    "about": "Thông tin ứng dụng: flutter, language: dart"
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:practice1/CustomRouter/Router_Constant.dart';
+import 'package:practice1/CustomRouter/CustomRouter.dart';
 import 'package:practice1/Localization/GlobalLocalization.dart';
+import 'package:practice1/screen/pages/home.dart';
 import 'screen/SignInBody/body.dart';
 import 'package:practice1/Localization/LanguageLocale.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,7 +23,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale _locale = Locale("vi");
+  Locale _locale = Locale('en');
   setLocale(Locale locale) {
     setState(() {
       _locale = locale;
@@ -37,7 +40,6 @@ class _MyAppState extends State<MyApp> {
     super.didChangeDependencies();
   }
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     if (this._locale == null) {
@@ -49,11 +51,15 @@ class _MyAppState extends State<MyApp> {
       );
     } else {
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Flutter Localization Demo",
+        theme: ThemeData(primarySwatch: Colors.blue),
         locale: _locale,
         supportedLocales: [
           Locale("en", "US"),
-          Locale("vi", "VN"),
-          Locale("af", "FA")
+          Locale("fa", "IR"),
+          Locale("ar", "SA"),
+          Locale("hi", "IN")
         ],
         localizationsDelegates: [
           GlobalLocalization.delegate,
@@ -64,32 +70,15 @@ class _MyAppState extends State<MyApp> {
         localeResolutionCallback: (locale, supportedLocales) {
           for (var supportedLocale in supportedLocales) {
             if (supportedLocale.languageCode == locale!.languageCode &&
-                supportedLocale.countryCode == locale.countryCode) {
+                supportedLocale.countryCode == locale!.countryCode) {
               return supportedLocale;
             }
           }
           return supportedLocales.first;
         },
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: SignInScreen(),
+        onGenerateRoute: CustomRouter.generatedRoute,
+        initialRoute: homeRoute,
       );
     }
-  }
-}
-
-class SignInScreen extends StatelessWidget {
-  static String routeName = "/sign_in";
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign In"),
-      ),
-      body: Body(),
-    );
   }
 }

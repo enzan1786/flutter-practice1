@@ -1,5 +1,17 @@
 {
     "message":"FA-Hello world",
-    "tile":"FA-title",
-    "change_language":"FA-Change language"
+    "title":"FA-title",
+    "change_language":"FA-Change language",
+    "home_page": "FA-Home Page",
+    "personal_information": "FA-Personal Information",
+    "name": "FA-Name",
+    "name_hint": "FA-Enter your name",
+    "email": "FA-Email",
+    "email_hint": "FA-Enter your email",
+    "date_of_birth": "FA-Date of Birth",
+    "required_field": "FA-Required Field",
+    "submit_info": "FA-Submit Info",
+    "about_us": "FA-About Us",
+    "settings": "FA-Settings",
+    "about": "FA-About application. framework: flutter. Language: dart"
 }
