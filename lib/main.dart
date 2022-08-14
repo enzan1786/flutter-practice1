@@ -57,9 +57,8 @@ class _MyAppState extends State<MyApp> {
         locale: _locale,
         supportedLocales: [
           Locale("en", "US"),
-          Locale("fa", "IR"),
-          Locale("ar", "SA"),
-          Locale("hi", "IN")
+          Locale("vi", "VN"),
+          Locale("fa", "AF")
         ],
         localizationsDelegates: [
           GlobalLocalization.delegate,
@@ -70,7 +69,7 @@ class _MyAppState extends State<MyApp> {
         localeResolutionCallback: (locale, supportedLocales) {
           for (var supportedLocale in supportedLocales) {
             if (supportedLocale.languageCode == locale!.languageCode &&
-                supportedLocale.countryCode == locale!.countryCode) {
+                supportedLocale.countryCode == locale.countryCode) {
               return supportedLocale;
             }
           }

@@ -38,7 +38,7 @@ class _GlobalLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) {
-    return ['en', 'vi'].contains(locale.languageCode);
+    return ['en', 'vi', 'fa'].contains(locale.languageCode);
   }
 
   @override

@@ -23,6 +23,7 @@ Future<Locale> getLocale() async {
 }
 
 Locale _locale(String languageCode) {
+  print("[Debug] language code $languageCode");
   switch (languageCode) {
     case ENGLISH:
       return Locale(ENGLISH, 'US');
