@@ -6,6 +6,8 @@
     "personal_information": "Thông tin cá nhân",
     "name": "tên",
     "name_hint": "nhập tên của bạn",
+    "pass": "Password",
+    "pass_hint": "Enter your password",
     "email": "email",
     "email_hint": "Nhập email",
     "date_of_birth": "Ngày sinh",

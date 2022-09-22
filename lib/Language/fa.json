@@ -6,6 +6,8 @@
     "personal_information": "FA-Personal Information",
     "name": "FA-Name",
     "name_hint": "FA-Enter your name",
+    "pass": "Password",
+    "pass_hint": "Enter your password",
     "email": "FA-Email",
     "email_hint": "FA-Enter your email",
     "date_of_birth": "FA-Date of Birth",

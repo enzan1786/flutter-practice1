@@ -1,6 +1,7 @@
 class Language {
   final int id;
-  final String flag;
+  final String
+      flag; // link for country flag https://en.wikipedia.org/wiki/Regional_indicator_symbol
   final String name;
   final String languageCode;
 
@@ -9,8 +10,8 @@ class Language {
   static List<Language> languageList() {
     return <Language>[
       Language(1, "🇺🇸", "English", "en"),
-      Language(2, "vn", "Vietnamese", "vi"),
-      Language(3, "🇦🇫", "فارسی", "fa"),
+      Language(2, "🇦🇫", "فارسی", "fa"),
+      Language(3, "🇻🇳", "Viet Nam", "vi"),
     ];
   }
 }

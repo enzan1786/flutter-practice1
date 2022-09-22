@@ -3,6 +3,7 @@ import 'package:practice1/Localization/LanguageLocale.dart';
 import 'package:practice1/classes/language.dart';
 import 'package:practice1/main.dart';
 import 'package:practice1/CustomRouter/Router_Constant.dart';
+import 'package:practice1/screen/Webview/WebViewCustom.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -13,7 +14,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Locale _locale = Locale("en");
-
+  final _nameController = TextEditingController();
+  final _passController = TextEditingController();
   void _changeLanguage(Language? language) async {
     _locale = await setLocale(language!.languageCode);
     MyApp.setLocale(context, _locale);
@@ -89,10 +91,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         TextFormField(
+          controller: _nameController,
           validator: (val) {
             if (val!.isEmpty) {
               return getTranslated(context, 'required_field');
-              // return DemoLocalization.of(context).translate('required_fiedl');
             }
             return null;
           },
@@ -106,6 +108,7 @@ class _HomePageState extends State<HomePage> {
           height: 10,
         ),
         TextFormField(
+          controller: _passController,
           validator: (val) {
             if (val!.isEmpty) {
               return getTranslated(context, 'required_field');
@@ -115,8 +118,8 @@ class _HomePageState extends State<HomePage> {
           },
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: getTranslated(context, 'email'),
-            hintText: getTranslated(context, 'email_hint'),
+            labelText: getTranslated(context, 'pass'),
+            hintText: getTranslated(context, 'pass_hint'),
           ),
         ),
         SizedBox(
@@ -153,11 +156,19 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
+        SizedBox(
+          height: 10,
+        ),
         MaterialButton(
           onPressed: () {
-            // if (_key.currentState.validate()) {
-            //   _showSuccessDialog();
-            // }
+            String name = _nameController.text;
+            String pass = _passController.text;
+            String url = "http://192.168.2.100/remote/";
+            // To close the Drawer
+            Navigator.pop(context);
+            // Navigating to About Page
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => WebViewCustom(url)));
           },
           height: 50,
           shape: StadiumBorder(),
